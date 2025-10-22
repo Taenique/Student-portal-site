@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rosebank College Student Portal</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #1e1e1e;
+      color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #b80000;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 1.5em;
+      font-weight: bold;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      background-color: #2b2b2b;
+      padding: 10px 0;
+      flex-wrap: wrap;
+    }
+
+    nav button {
+      background-color: #b80000;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      margin: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+
+    nav button:hover {
+      background-color: #e60000;
+    }
+
+    section {
+      display: none;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    section.active {
+      display: block;
+    }
+
+    .card {
+      background-color: #2b2b2b;
+      border-radius: 10px;
+      padding: 20px;
+      margin: 15px 0;
+      box-shadow: 0 2px 5px rgba(255, 255, 255, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      color: #fff;
+    }
+
+    th, td {
+      border: 1px solid #555;
+      padding: 10px;
+      text-align: center;
+    }
+
+    th {
+      background-color: #b80000;
+    }
+
+    .upload-container {
+      margin-top: 15px;
+      text-align: center;
+    }
+
+    .upload-container img {
+      margin-top: 15px;
+      max-width: 250px;
+      border-radius: 10px;
+      border: 2px solid #b80000;
+    }
+
+    .success-message {
+      color: #4CAF50;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: #2b2b2b;
+      color: #aaa;
+      margin-top: 30px;
+      font-size: 0.9em;
+    }
+
+    /* Lecturer card inside lecturer section */
+    #lecturerList .card {
+      margin: 10px 0;
+      padding: 15px;
+    }
+
+    #lecturerList a {
+      color: #00bfff;
+      text-decoration: none;
+    }
+
+    #lecturerList a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <header>Rosebank College Student Portal</header>
+
+  <nav>
+    <button onclick="showSection('dashboard')">Dashboard</button>
+    <button onclick="showSection('timetable')">Timetable</button>
+    <button onclick="showSection('assessments')">Assessments</button>
+    <button onclick="showSection('lecturers')">Lecturers</button>
+  </nav>
+
+  <!-- Dashboard Section -->
+  <section id="dashboard" class="active">
+    <div class="card">
+      <h2>Welcome, Future developer 👋</h2>
+      <p>Manage your modules, assessments, and timetable all in one place.</p>
+
+      <div class="upload-container">
+        <h3>Upload Student Card</h3>
+        <input type="file" id="cardUpload" accept="image/*" />
+        <div id="uploadMessage"></div>
+        <img id="studentCard" alt="Student Card" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Timetable Section -->
+  <section id="timetable">
+    <div class="card">
+      <h2>Weekly Timetable</h2>
+      <table>
+      <tr>
+        <th>Day</th><th>08:00</th><th>09:00</th><th>10:00</th><th>11:00</th><th>12:00</th><th>13:00</th><th>14:00</th><th>15:00</th>
+      </tr>
+      <tr>
+        <td>Monday</td><td></td><td></td><td class="green">PROG 606</td><td class="yellow">HCIN 603</td><td></td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>Wednesday</td><td></td><td class="purple">DATA 607</td><td class="green">PROG 607</td><td></td><td class="red">IPMA 606</td><td></td><td></td><td></td>
+      </tr>
+      <tr>
+        <td>Friday</td><td></td><td class="purple">DATA 606</td><td class="red">IPMA 606</td><td class="green">PROG 607</td><td class="yellow">HCIN 705</td><td></td><td></td><td></td>
+      </tr>
+    </table>
+    <p><em>Validity: 01/07/2025 - 31/12/2025</em></p>
+  </section>
+
+  <!-- Assessments Section -->
+  <section id="assessments">
+    <div class="card">
+      <h2>Assessment Deadlines</h2>
+      <table>
+        <tr><th>Module</th><th>Assessment</th><th>Due Date</th></tr>
+        <tr class="purple"><td>DATA6222</td><td>Assignment 1</td><td>22 Aug</td></tr>
+        <tr class="green"><td>PROG6212</td><td>POE Part 1</td><td>09 Sept</td></tr>
+        <tr class="red"><td>IPMA6212</td><td>Assignment 1</td><td>19 Sept</td></tr>
+        <tr class="yellow"><td>HCIN6222</td><td>POE Part 1</td><td>26 Sept</td></tr>
+        <tr class="purple"><td>DATA6222</td><td>Test 1</td><td>30 Sep</td></tr>
+        <tr class="red"><td>IPMA6212</td><td>Assignment 2</td><td>10 Oct</td></tr>
+        <tr class="yellow"><td>HCIN6222</td><td>POE Part 2</td><td>22 Oct</td></tr>
+        <tr class="green"><td>PROG606</td><td>POE Part 2</td><td>24 Oct</td></tr>
+        <tr class="red"><td>IPMA6212</td><td>Exam 1(12:00)</td><td>06 Nov</td></tr>
+        <tr class="purple"><td>DATA6222</td><td>Exam 1(12:00)</td><td>11 Nov</td></tr>
+        <tr class="yellow"><td>HCIN6222</td><td>POE Part 3</td><td>14 Nov</td></tr>
+        <tr class="green"><td>PROG606</td><td>POE Part 3</td><td>21 Nov</td></tr>
+      </table>
+    </div>
+  </section>
+
+  <!-- Lecturers Section -->
+  <section id="lecturers">
+    <div class="card">
+      <h2>Module Lecturers</h2>
+      <div id="lecturerList"></div>
+    </div>
+  </section>
+
+  <footer>
+    Developed for Rosebank College Students
+  </footer>
+
+  <script>
+    // Tab switching
+    function showSection(id) {
+      document.querySelectorAll('section').forEach(sec => sec.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+    }
+
+    // Student card upload + save
+    const uploadInput = document.getElementById('cardUpload');
+    const studentCard = document.getElementById('studentCard');
+    const uploadMessage = document.getElementById('uploadMessage');
+
+    const savedCard = localStorage.getItem('studentCard');
+    if (savedCard) {
+      studentCard.src = savedCard;
+      uploadMessage.textContent = "Student card already uploaded.";
+      uploadMessage.className = "success-message";
+    }
+
+    uploadInput.addEventListener('change', function () {
+      if (localStorage.getItem('studentCard')) {
+        uploadMessage.textContent = "A student card has already been uploaded.";
+        uploadMessage.className = "success-message";
+        return;
+      }
+
+      const file = this.files[0];
+      if (file) {
+        const reader = new FileReader();
+        reader.onload = function (e) {
+          localStorage.setItem('studentCard', e.target.result);
+          studentCard.src = e.target.result;
+          uploadMessage.textContent = "Picture successfully updated";
+          uploadMessage.className = "success-message";
+        };
+        reader.readAsDataURL(file);
+      }
+    });
+
+    // Module Lecturers Data
+    const lecturers = [
+      { name: "Mr. Joseph (HCIN Lecturer)", phone: "+27 79265 7165", email: "jlumbahe@iie.ac.za" },
+      { name: "Smanga N. (Programming Lecturer)", phone: "+27 730 096 7716", email: "" },
+      { name: "Ms. Nomi (IPMA Lecturer)", phone: "+27 81 493 1952", email: "nprusent@rosebankcollege.co.za" },
+      { name: "Mr. Marvin (DATA Lecturer)", phone: "+27 83 681 5047", email: "mtheys@rosebankcollege.co.za" }
+    ];
+
+    // Display lecturers
+    const lecturerList = document.getElementById('lecturerList');
+    lecturers.forEach(lect => {
+      const div = document.createElement('div');
+      div.className = "card";
+      div.innerHTML = `
+        <h3>${lect.name}</h3>
+        <p>Phone: <a href="tel:${lect.phone.replace(/\s+/g,'')}">${lect.phone}</a></p>
+        ${lect.email ? `<p>Email: <a href="mailto:${lect.email}">${lect.email}</a></p>` : ''}
+      `;
+      lecturerList.appendChild(div);
+    });
+  </script>
+</body>
+</html>
